@@ -1,0 +1,22 @@
+{
+  "name": "vue-dropzone",
+  "version": "1.0.0",
+  "description": "A vue wrapper component for dropzone.",
+  "main": "VueDropzone.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "component",
+    "dropzone",
+    "drag",
+    "n",
+    "drop"
+  ],
+  "author": "Mohammad Shoriful Islam Ronju",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^1.0.26"
+  }
+}
