@@ -1,3 +1,5 @@
+> Please be patient this is not completed yet.
+
 # vue-dropzone
 A vue wrapper component for dropzone js.
 
@@ -13,10 +15,6 @@ Example usage coming soon :)
 
 ### url
 * Type: `String`
-* Required: `false`
-
-### height
-* Type: `Number`
 * Required: `false`
 
 ### Resources
