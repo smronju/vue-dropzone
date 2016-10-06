@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Dropzone from 'dropzone';
 
 const DropzoneComponent = Vue.extend({
     props: {

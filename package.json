@@ -18,5 +18,8 @@
   "license": "MIT",
   "peerDependencies": {
     "vue": "^1.0.26"
+  },
+  "dependencies": {
+    "dropzone": "^4.3.0"
   }
 }
