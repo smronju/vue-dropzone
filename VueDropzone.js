@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Dropzone from 'dropzone';
+var Vue = require('vue');
+var Dropzone = require('dropzone');
 
 const DropzoneComponent = Vue.extend({
     props: {
@@ -13,7 +13,7 @@ const DropzoneComponent = Vue.extend({
         },
         createImageThumbnails: {
             type: Boolean,
-            default: false
+            default: true
         },
         previewsContainer: {
             type: Boolean,
@@ -21,37 +21,38 @@ const DropzoneComponent = Vue.extend({
         },
         clickable: {
             type: Boolean,
-            default: false
+            default: true
+        },
+        files: {
+            type: Array,
+            default: [],
+            twoWay: true
         }
     },
     template: `
-        <div v-el:dropzone>
+        <div v-el:dropzone class="vue-dropzone">
             <p>Drag file here to upload</p>
         </div>
     `,
-    methods: {
-        getFiles () {
-            console.log('Return dropzone dropped files');
-            console.log(this.dropzone);
-        }
-    },
     ready () {
-        console.log('Initialize dropzone');
         const dropzone = new Dropzone(this.$els.dropzone, {
-            url,
-            autoProcessQueue: false,
-            createImageThumbnails: false,
-            previewsContainer: false,
-            uploadMultiple: false,
-            clickable: false
+            url: this.url,
+            autoProcessQueue: this.autoProcessQueue,
+            createImageThumbnails: this.createImageThumbnails,
+            previewsContainer: this.previewsContainer,
+            uploadMultiple: this.uploadMultiple,
+            clickable: this.clickable
+        });
+
+        dropzone.on('thumbnail', (file, thumbnail) => {
+            this.files.push({ file, thumbnail });
         });
     },
-    beforeDestroy () {
-        console.log('Destroy component');
-    },
     destroyed () {
-        console.log('Destroyed');
+        this.files = [];
     }
 });
 
-module.exports = Vue.component('vue-dropzone', DropzoneComponent);
+VueDropzone = Vue.component('vue-dropzone', DropzoneComponent);
+
+module.exports = VueDropzone;
