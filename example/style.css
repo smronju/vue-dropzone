@@ -1,0 +1,14 @@
+#app {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vue-dropzone {
+    width: 400px;
+    height: 250px;
+    text-align: center;
+    border: 1px dashed #adadad;
+    line-height: 225px;
+}
